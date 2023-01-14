@@ -1,0 +1,21 @@
+.title-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-top: 24px;
+     .hipodromo-texto{
+        font-size: 36px;
+        font-weight: 700;
+     .hipodromo-icono {
+        font-size: 44px;
+     }
+     }
+}
+.subtitle-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-top: 24px 16px;
+     font-size: 30px;
+     text-align: center;
+}

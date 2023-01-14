@@ -1,0 +1,31 @@
+.toolbar-wrapper { 
+    display: flex;
+    max-width: 1128px;
+    margin: auto;
+}
+
+.chart-logo{
+    font-size: 40px;
+}
+
+ion-searchbar{
+    --box-shadow: none;
+    transform: scale(0.8);
+    margin-left: -40px;
+}
+
+.icon-icon{
+    font-size: 24px;
+}
+
+ion-col div, ion-badge{ 
+    font-size: 12px;
+    font-weight: 400;
+}
+ion-col{
+    width: 80px !important;
+    text-align: center;
+}
+ion-header{
+    border-bottom: 1 px solid var(--ion-color-light-tint);
+}

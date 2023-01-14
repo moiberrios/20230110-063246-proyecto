@@ -1,0 +1,65 @@
+<ion-content>
+  <div class="title-container">
+    <ion-text color="primary" class="hipodromo-texto">Hipodromo La Rinconada</ion-text>
+    <ion-icon class="hipodromo-icono" name="star-outline" color="primary" size="large"></ion-icon>
+  </div>
+  <div color="secondary" class="subtitle-container">El hipodromo #1 de Venezuela!</div>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
+    <ion-card>
+     <ng-container *ngIf="submissionType !== 'join'">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input #firstNameInput="ngModel" ngModel type="text" name="firstName" required></ion-input>
+      </ion-item>
+      <ion-text 
+        color="danger"
+        *ngIf="!firstNameInput.valid && firstNameInput.touched">
+         Por favor, ingrese su nombre
+      </ion-text>
+     </ng-container> 
+    </ion-card>
+    <ion-card>
+     <ng-container *ngIf="submissionType !== 'join'">
+      <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input #apellidoInput="ngModel" ngModel type="text" name="apellido" required></ion-input>
+      </ion-item>
+      <ion-text 
+        color="danger"
+        *ngIf="!apellidoInput.valid && apellidoInput.touched">
+        Por favor, ingrese su apellido
+      </ion-text>
+     </ng-container> 
+    </ion-card>
+    <ion-card>
+     <ng-container *ngIf="submissionType !== 'join'">
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input #correoInput="ngModel" ngModel type="email" name="correo" required></ion-input>
+      </ion-item>
+      <ion-text 
+        color="danger"
+        *ngIf="!correoInput.valid && correoInput.touched">
+        Por favor, ingrese su correo electrónico
+      </ion-text>
+     </ng-container> 
+    </ion-card>
+    <ion-card>
+     <ng-container *ngIf="submissionType !== 'join'">
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input #contrasennaInput="ngModel" ngModel type="password" name="contrasenna" required></ion-input>
+      </ion-item>
+      <ion-text 
+        color="danger"
+        *ngIf="!contrasennaInput.valid && contrasennaInput.touched">
+        Por favor, ingrese su contraseña 
+      </ion-text>
+     </ng-container> 
+    </ion-card>
+  </form>
+
+</ion-content>
+
+
