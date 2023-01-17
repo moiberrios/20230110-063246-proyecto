@@ -6,60 +6,40 @@
   <div color="secondary" class="subtitle-container">El hipodromo #1 de Venezuela!</div>
 
   <form #form="ngForm" (ngSubmit)="onSubmit()">
-    <ion-card>
-     <ng-container *ngIf="submissionType !== 'join'">
+      <ion-card>
+        <ng-container *ngIf="submissionType === 'join'">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input #emailInput="ngModel" ngModel type="email" name="email" required></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="!emailInput.valid && emailInput.touched">
+          Por favor, ingrese su email
+        </ion-text>
+      </ng-container>
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
-        <ion-input #firstNameInput="ngModel" ngModel type="text" name="firstName" required></ion-input>
+        <ion-input #nameInput="ngModel" ngModel type="text" name="name" required></ion-input>
       </ion-item>
-      <ion-text 
-        color="danger"
-        *ngIf="!firstNameInput.valid && firstNameInput.touched">
-         Por favor, ingrese su nombre
+      <ion-text color="danger" *ngIf="!nameInput.valid && nameInput.touched">
+        Por favor, ingrese su nombre
       </ion-text>
-     </ng-container> 
-    </ion-card>
-    <ion-card>
-     <ng-container *ngIf="submissionType !== 'join'">
-      <ion-item>
-        <ion-label position="floating">Apellido</ion-label>
-        <ion-input #apellidoInput="ngModel" ngModel type="text" name="apellido" required></ion-input>
-      </ion-item>
-      <ion-text 
-        color="danger"
-        *ngIf="!apellidoInput.valid && apellidoInput.touched">
-        Por favor, ingrese su apellido
-      </ion-text>
-     </ng-container> 
-    </ion-card>
-    <ion-card>
-     <ng-container *ngIf="submissionType !== 'join'">
-      <ion-item>
-        <ion-label position="floating">Correo Electrónico</ion-label>
-        <ion-input #correoInput="ngModel" ngModel type="email" name="correo" required></ion-input>
-      </ion-item>
-      <ion-text 
-        color="danger"
-        *ngIf="!correoInput.valid && correoInput.touched">
-        Por favor, ingrese su correo electrónico
-      </ion-text>
-     </ng-container> 
-    </ion-card>
-    <ion-card>
-     <ng-container *ngIf="submissionType !== 'join'">
       <ion-item>
         <ion-label position="floating">Contraseña</ion-label>
-        <ion-input #contrasennaInput="ngModel" ngModel type="password" name="contrasenna" required></ion-input>
+        <ion-input #passwordInput="ngModel" ngModel type="password" name="password" required></ion-input>
       </ion-item>
-      <ion-text 
-        color="danger"
-        *ngIf="!contrasennaInput.valid && contrasennaInput.touched">
-        Por favor, ingrese su contraseña 
+      <ion-text color="danger" *ngIf="!passwordInput.valid && passwordInput.touched">
+        Por favor, ingrese su contraseña
       </ion-text>
-     </ng-container> 
     </ion-card>
+    <ion-button [disabled]="!form.valid" type="submit" shape="round" expand="block">
+      {{submissionType === 'login' ? 'Iniciar Sesion' : 'Registrate'}}
+    </ion-button>
   </form>
+  <div class="toggle-text">
+    {{ submissionType === 'login' ? 'Nuevo en La Rinconada?' : 'Ya existente en La Rinconada?'}}
+    <ion-text (click)="toggleText()" color="primary">
+      {{ submissionType === 'login' ? 'Registrate' : 'Inicia sesion'}}
+    </ion-text>
+  </div>
 
 </ion-content>
-
-
